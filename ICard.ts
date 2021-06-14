@@ -1,8 +1,10 @@
 interface ICard {
-    Name : string,
-    Mana : number,
-    Type : string,
-    Text : string,
+    state: {
+        name: string,
+        mana: number,
+        type: string,
+        text: string
+    },
     Actions : Array<(states) => void>
 }
 

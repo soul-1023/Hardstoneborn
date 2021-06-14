@@ -1,18 +1,20 @@
 import Card from './Card'
 
 class Battlefield {
-    Battlefield : Card[];
+    private _battlefield : Card[];
 
-    get Count() {
-        return this.Battlefield.length
+    get Battlefield() {
+        return this._battlefield
     }
 
-    private set Count(value) {
-        this.Count = value
+    get Count() {
+        return this._battlefield.length
     }
 
     Clear() : void {
-        this.Battlefield = []
+        this._battlefield = []
     }
 
 }
+
+export default Battlefield;

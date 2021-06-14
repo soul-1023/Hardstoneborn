@@ -6,15 +6,6 @@ class CardFactory {
         states = {}, 
         behavior : Array<(states) => void> = []
     ) : ICard {
-        let card : ICard = new Card()
-
-        card.Actions = behavior.map(f => {
-            return () => {
-                states = {...states}
-                return f(states)
-            }
-        })
-
-        return card
+        return new Card(states, behavior);
     }
 }
