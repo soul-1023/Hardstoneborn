@@ -26,6 +26,7 @@ class Character {
 
         if(card != undefined) {
             let indexCard : number = this._hand.Cards.indexOf(card)
+
             this._hand.deleteCard(indexCard)
             this._battlefield.addCard(card)
         }
