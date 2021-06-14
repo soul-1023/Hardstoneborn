@@ -1,12 +1,12 @@
 import Card from './Card'
 
 class Hand {
-    public hand: Card[]
+    private _cards: Card[]
     private _effects: Array<() => void>
 
     constructor(hand = []) {
         this._effects = []
-        this.hand = hand
+        this._cards = hand
     }
 
     get Effects() {
@@ -15,6 +15,18 @@ class Hand {
 
     addEffect(effect: () => void) {
         this._effects.push(effect)
+    }
+
+    get Cards() {
+        return this._cards
+    }
+
+    set Cards(cards) {
+        cards.forEach(card => this._cards.push(card))
+    }
+
+    deleteCard(index : number) {
+        this._cards.splice(index, 1)
     }
 }
 

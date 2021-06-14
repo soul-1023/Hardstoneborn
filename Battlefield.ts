@@ -1,18 +1,22 @@
 import Card from './Card'
 
 class Battlefield {
-    private _battlefield : Card[];
+    private _cards : Card[];
 
     get Battlefield() {
-        return this._battlefield
+        return this._cards
+    }
+
+    addCard(card : Card) {
+        this._cards.push(card)
     }
 
     get Count() {
-        return this._battlefield.length
+        return this._cards.length
     }
 
     Clear() : void {
-        this._battlefield = []
+        this._cards = []
     }
 
 }

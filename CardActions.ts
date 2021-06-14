@@ -11,3 +11,5 @@ class CardActions {
 
     }
 }
+
+export default CardActions;
