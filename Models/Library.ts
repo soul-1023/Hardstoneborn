@@ -1,4 +1,4 @@
-import Card from './Card'
+import Card from './Models/Card'
 
 class Library {
     private _library : Card[];

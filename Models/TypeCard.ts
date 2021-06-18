@@ -1,5 +1,5 @@
 
 export enum TypeCard {
-    Arcane = "arcane",
+    Enchantment = "enchantment",
     Sorcery = "sorcery"
 }

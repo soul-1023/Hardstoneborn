@@ -18,11 +18,12 @@ let card = {
 
 }
 
-function Sew(card, behavior) {
-    return {
-        ...card,
-        ...behavior
-    }
+function Sew(state, behavior) {
+    let card = new Card(state)
+
+    card.Actions = [...behavior]
+
+    return card
 }
 
 Sew(card, CardBehavior[card.name].behaviors)

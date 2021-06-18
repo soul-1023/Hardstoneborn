@@ -1,7 +1,7 @@
-import Card from './Card'
+import Card from './Models/Card'
 
 class Hand {
-    private _cards: Card[]
+    private _cards: Array<Card>
     private _effects: Array<() => void>
 
     constructor(hand = []) {
@@ -15,6 +15,10 @@ class Hand {
 
     addEffect(effect: () => void) {
         this._effects.push(effect)
+    }
+
+    getCard(name: string) {
+        return this._cards.find(e => e.state.name == name)
     }
 
     get Cards() {

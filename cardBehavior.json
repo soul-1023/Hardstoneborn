@@ -1,0 +1,83 @@
+{
+    "cards": [
+        {
+            "name": "Opt",
+            "mana": 1,
+            "type": "sorcery",
+            "text": "Возьмите карту",
+            "behaviors": []
+        },
+
+        {
+            "name": "Electric Mantle",
+            "mana": 2,
+            "type": "enchantment",
+            "text": "Заклинания становятся дешевле на 1",
+            "behaviors": []
+        },
+
+        {
+            "name": "Desperate Ritual",
+            "mana": 2,
+            "type": "sorcery",
+            "text": "Добавьте 3 маны в ваш пул",
+            "behaviors": []
+        },
+
+        {
+            "name": "Gifts Ungiven",
+            "mana": 4,
+            "type": "sorcery",
+            "text": "Возьмите 4 карты и 2 случайные из них положите вниз библиотеки",
+            "behaviors": []
+        },
+
+        {
+            "name": "Grapeshot",
+            "mana": 2,
+            "type": "sorcery",
+            "text": "Нанесите 1 урона оппоненту за каждую карту разыгранную вами в этом ходу",
+            "behaviors": []
+        },
+
+        {
+            "name": "Manamorphose",
+            "mana": 2,
+            "type": "sorcery",
+            "text": "Добавьте 2 маны. Возьмите карту",
+            "behaviors": []
+        },
+
+        {
+            "name": "Serum Visions",
+            "mana": 1,
+            "type": "sorcery",
+            "text": "Возьмите карту. Уберите две верхние карты в низ библиотеки",
+            "behaviors": []
+        },
+
+        {
+            "name": "Silundi Vision",
+            "mana": 3,
+            "type": "sorcery",
+            "text": "С верха библиотеки показывается шесть карт, если среди них находится волшебство, то оно кладётся в руку, а остальные карты в низ библиотеки",
+            "behaviors": []
+        },
+
+        {
+            "name": "Lightning Bolt",
+            "mana": 1,
+            "type": "sorcery",
+            "text": "Нанесите 3 урона оппоненту",
+            "behaviors": []
+        },
+
+        {
+            "name": "Sleight of Hand",
+            "mana": 1,
+            "type": "sorcery",
+            "text": "С верха библиотеки показывается две карты, случайная карта ложится в руку, а другая кладётся в низ библиотеки",
+            "behaviors": []
+        }
+    ]
+}
