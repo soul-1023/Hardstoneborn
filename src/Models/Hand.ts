@@ -1,24 +1,27 @@
-import Card from './Models/Card'
+import Card from './Card'
 
 class Hand {
     private _cards: Array<Card>
-    private _effects: Array<() => void>
+    private _effects: Array<{name: string, effect: () => void}>
 
     constructor(hand = []) {
-        this._effects = []
         this._cards = hand
+    }
+
+    deleteCard(cardName: string) : void {
+        this._cards = this._cards.filter(c => c.state.name !== cardName)
+    }
+
+    addEffect(name: string, effect: () => void) : void {
+        this._effects.push({name, effect})
+    }
+
+    getCard(name: string) : Card {
+        return this._cards.find(e => e.state.name == name)
     }
 
     get Effects() {
         return this._effects
-    }
-
-    addEffect(effect: () => void) {
-        this._effects.push(effect)
-    }
-
-    getCard(name: string) {
-        return this._cards.find(e => e.state.name == name)
     }
 
     get Cards() {
@@ -26,11 +29,7 @@ class Hand {
     }
 
     set Cards(cards) {
-        cards.forEach(card => this._cards.push(card))
-    }
-
-    deleteCard(index : number) {
-        this._cards.splice(index, 1)
+        this._cards.push(...cards)
     }
 }
 

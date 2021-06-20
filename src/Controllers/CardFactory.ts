@@ -1,11 +1,16 @@
-import {ICard} from './ICard'
-import Card from './Card'
+import Card from '../Models/Card'
+import Character from '../Models/Character';
 
 class CardFactory {
     Sew(
-        states = {}, 
-        behavior : Array<(states) => void> = []
-    ) : ICard {
-        return new Card(states, behavior);
+        state : {
+            name: string, 
+            mana: number,
+            type: string,
+            text : string
+        }, 
+        behavior: (character: Character) => void
+    ) : Card {
+        return new Card(state, behavior)
     }
 }

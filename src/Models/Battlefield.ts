@@ -1,13 +1,13 @@
-import Card from './Models/Card'
+import Card from './Card'
 
 class Battlefield {
     private _cards : Card[];
 
-    get Battlefield() {
+    get Cards() {
         return this._cards
     }
 
-    addCard(card : Card) {
+    addCard(card : Card) : void {
         this._cards.push(card)
     }
 
@@ -16,7 +16,7 @@ class Battlefield {
     }
 
     Clear() : void {
-        this._cards = []
+        this._cards.length = 0
     }
 
 }

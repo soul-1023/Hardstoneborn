@@ -1,24 +1,27 @@
-import Hand from "../Hand";
-import Library from "../Library";
-import CardActions from "../Controllers/CardActions";
+import Hand from "./Hand";
+import Library from "./Library";
 import Card from "./Card";
 import Battlefield from "./Battlefield";
 
-
+// Я специально сделал Character фасадом
+// поскольку время на написание слишком короткое
+// в перспективе, его нужно разбить на нужное количество модулей
+// и скорее всего, управление рукой и библиотекой, должны осуществляться
+// через посредник, а не через Character
 class Character {
+    private _name : string
     private _hand : Hand
     private _library : Library
     private _battlefield : Battlefield
-    Actions : CardActions
     private _healthPoint : number
     private _mana : number
 
-    constructor() {
+    constructor(name: string) {
+        this._name = name
         this._healthPoint = 20
         this._mana = 0
         this._hand = new Hand()
         this._library = new Library()
-        this.Actions = new CardActions()
     }
 
     TakeCard(count: number) : void {
@@ -29,9 +32,7 @@ class Character {
         let card : Card | undefined = this._hand.Cards.find(c => c.state.name == cardName)
 
         if(card != undefined) {
-            let indexCard : number = this._hand.Cards.indexOf(card)
-
-            this._hand.deleteCard(indexCard)
+            this._hand.deleteCard(card.state.name)
             this._battlefield.addCard(card)
 
             return true
@@ -40,8 +41,12 @@ class Character {
         return false
     }
 
+    get Name() {
+        return this._name;
+    }
+
     get Hand() {
-        return this._hand.Cards
+        return this._hand
     }
 
     get HealthPoint() {
@@ -56,8 +61,16 @@ class Character {
         return this._mana
     }
 
-    set Mana(value : number) {
-        this._mana += value
+    addMana(count : number) {
+        this._mana += count
+    }
+
+    get Library() {
+        return this._library
+    }
+
+    set Library(cards) {
+        this._library.Cards = cards
     }
 }
 

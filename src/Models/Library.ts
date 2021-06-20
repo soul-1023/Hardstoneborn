@@ -1,4 +1,4 @@
-import Card from './Models/Card'
+import Card from './Card'
 
 class Library {
     private _library : Card[];
@@ -15,7 +15,7 @@ class Library {
         return cards
     }
 
-    set Library(value) {
+    set Cards(value) {
         this._library = [...value]
     }
 }

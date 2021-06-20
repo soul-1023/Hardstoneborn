@@ -1,18 +1,20 @@
-import Character from "../Models/Character";
+import Card from "../Models/Card";
 
 
-class CounterManager {
-    AddMana(character: Character, count: number) {
-        character.Mana += count
+class CounterOfPlayedCards {
+    playedCards : number
+
+    constructor() {
+        this.playedCards = 0
     }
 
-    SpendMana(character: Character, count: number) {
-        character.Mana -= count
+    trackIt() : void {
+        this.playedCards++
     }
 
-    Damage(character: Character, count: number) {
-        character.ReduceHealth(count)
+    clear() : void {
+        this.playedCards = 0
     }
 }
 
-export default CounterManager;
+export default CounterOfPlayedCards;

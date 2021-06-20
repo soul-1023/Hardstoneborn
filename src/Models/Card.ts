@@ -1,3 +1,4 @@
+import Character from "./Character";
 
 class Card {
     state: {
@@ -5,16 +6,30 @@ class Card {
         mana: number,
         type: string,
         text: string
-    };
-    Actions : Array<(state) => void> = []
-
-    produce() : void {
-        this.Actions.forEach(cb => cb(this.state))
     }
 
-    constructor(state) {
+    private _action : (character: Character) => void
+
+    run(character: Character) : void {
+        this._action(character)
+    }
+
+    constructor(
+        state : {
+            name: string, 
+            mana: number,
+            type: string,
+            text : string
+        },
+        action: (character: Character) => void
+    ) {
         this.state = {...state}
+        this._action = action
+    }
+
+    clone() {
+        return new Card(this.state, this._action)
     }
 }
 
-export default Card;
+export default Card; 
