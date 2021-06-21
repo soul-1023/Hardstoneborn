@@ -1,6 +1,7 @@
 import Card from "./Models/Card"
 import CharacterManager from "./Controllers/CharactersManager"
 import CharactersManager from "./Controllers/CharactersManager"
+import Character from "./Models/Character"
 
 
 class Game {
@@ -10,12 +11,14 @@ class Game {
         this.characterManager = new CharactersManager()
     }
 
-    initialization(cards: Array<Card>): void {
-        const COPIES_OF_CARDS: number = 4
-        let replicatedCards = this.replicate(cards, COPIES_OF_CARDS)
-        replicatedCards = this.shuffle(replicatedCards)
+    initialization(cards: Array<Card>, playerName = 'Player'): void {
+        this.characterManager.Characters.forEach(character => {
+            this.fillLibrary(character, cards)
+            this.distribute(cards, character)
+        })
 
-        // this.characterManager.Characters.
+        this.characterManager.createPlayer(playerName)
+        this.characterManager.createAI()
     }
 
     private shuffle(cards: Array<Card>) : Array<Card> {
@@ -37,5 +40,17 @@ class Game {
                 [...Array(count)].map(_ => card.clone())
             )
         }, [])
+    }
+
+    private distribute(cards: Array<Card>, character: Character) : void {
+        const COUNT_OF_DISTR_CARDS : number = 5
+        character.TakeCard(COUNT_OF_DISTR_CARDS)
+    }
+
+    private fillLibrary(character: Character, cards: Array<Card>) {
+        const COPIES_OF_CARDS: number = 4
+        character.Library.Cards = this.shuffle(
+            this.replicate(cards, COPIES_OF_CARDS)
+        )
     }
 }

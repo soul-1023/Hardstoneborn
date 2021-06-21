@@ -24,11 +24,11 @@ class Hand {
         return this._effects
     }
 
-    get Cards() {
+    get Cards() : Array<Card> {
         return this._cards
     }
 
-    set Cards(cards) {
+    set Cards(cards: Array<Card>) {
         this._cards.push(...cards)
     }
 }

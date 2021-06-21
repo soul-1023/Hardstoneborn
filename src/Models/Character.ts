@@ -41,6 +41,16 @@ class Character {
         return false
     }
 
+    putItDown(count : number) : void {
+        for(let i = 0; i < count; i++) {
+            let topCard = this._library.Cards.pop()
+                
+            if(topCard !== undefined) {
+                this._library.Cards.unshift(topCard)
+            }
+        }
+    }
+
     get Name() {
         return this._name;
     }
@@ -65,11 +75,11 @@ class Character {
         this._mana += count
     }
 
-    get Library() {
+    get Library() : Library {
         return this._library
     }
 
-    set Library(cards) {
+    set LibraryCards(cards: Array<Card>) {
         this._library.Cards = cards
     }
 }

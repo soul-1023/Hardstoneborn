@@ -7,11 +7,10 @@ class CharactersManager {
     constructor() {
         this._characters = []
     }
-    
-    get Characters() {
+
+    get Characters() : Array<Character> {
         return this._characters
     }
-
 
     createPlayer(name: string): void {
         this._characters.push(new Character(
@@ -23,6 +22,18 @@ class CharactersManager {
         this._characters.push(new AI(
             name
         ))
+    }
+
+    getActive() : Character {
+        const START_POSITION : number = 0
+
+        return this._characters[START_POSITION]
+    }
+
+    mix() : void {
+        this._characters = this._characters.sort(() => {
+            return Math.random() > .5 ? 1 : -1
+        })
     }
 }
 
